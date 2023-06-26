@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <!-- htmltocanvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!-- <script src="scripts/jquer_latest_3.6_.min.js" type="text/javascript"></script> -->
+    <!-- <script src="scripts/html2canvas.js" type="text/javascript"></script> -->
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: normal;
+            src: url(https://fonts.gstatic.com/s/opensans/v35/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVc.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Pinyon Script';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/pinyonscript/v18/6xKpdSJbL9-e9LuoeQiDRQR8WOXaPw.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Rochester';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/rochester/v18/6ae-4KCqVa4Zy6Fif-UC2FHS.ttf) format('truetype');
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Mono&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+        .H_btn {
+            position: absolute;
+            bottom: 7%;
+            right: 10%;
+            color: black;
+            font-size: 1.8rem;
+            font-family: "Oswald", sans-serif !important;
+        }
+
+        .H_btn:hover {
+            color: #fff;
+        }
+
+        .H_btn button {
+            font-family: "Oswald", sans-serif !important;
+            position: absolute;
+            z-index: 1000;
+            background-color: cornflowerblue;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 40px;
+        }
+
+        .H_btn button :hover {
+            background-color: #777;
+        }
+
+        .cursive {
+            font-family: 'Pinyon Script', cursive;
+        }
+
+        .sans {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .underline {
+            border-bottom: 1px solid #777;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+
+        .margin-0 {
+            margin: 0;
+        }
+
+        .padding-0 {
+            padding: 0;
+        }
+
+        .pm-empty-space {
+            height: 40px;
+            width: 100%;
+        }
+
+        body {
+            padding: 20px 0;
+            background: #ccc;
+        }
+
+        .pm-certificate-container {
+            margin-top: 150px;
+            position: relative;
+            width: 900px;
+            height: 600px;
+            background: rgb(255, 65, 23);
+            background: linear-gradient(180deg, rgba(255, 65, 23, 1) 0%, rgba(255, 255, 255, 1) 58%, rgba(46, 232, 13, 1) 100%);
+            padding: 30px;
+            color: #333;
+            font-family: 'Open Sans', sans-serif;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo_govt {
+            position: absolute;
+            left: 40px;
+            top: 70px;
+            width: 100px;
+            height: 100px;
+            z-index: 100;
+        }
+
+        .logo_govt2 {
+            position: absolute;
+            right: 40px;
+            top: 70px;
+            width: 100px;
+            height: 100px;
+            z-index: 100;
+        }
+
+        .logo_govt2 img {
+            width: 100%;
+            -webkit-transform: scaleX(-1);
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            transform: scaleX(-1);
+
+            filter: FlipH;
+            -ms-filter: "FlipH";
+        }
+
+        .congratulations_logo {
+            position: absolute;
+            top: 210px;
+            left: 40%;
+            width: 200px;
+            height: 50px;
+            z-index: 100;
+        }
+
+        .congratulations_logoimg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo_govt img {
+            width: 100%;
+        }
+
+        .pm-certificate-container .outer-border {
+            width: 894px;
+            height: 594px;
+            position: absolute;
+            left: 50%;
+            margin-left: -447px;
+            top: 50%;
+            margin-top: -297px;
+            border: 2px solid #fff;
+        }
+
+        .pm-certificate-container .inner-border {
+            width: 830px;
+            height: 530px;
+            position: absolute;
+            left: 50%;
+            margin-left: -415px;
+            top: 50%;
+            margin-top: -265px;
+            border: 2px solid #fff;
+        }
+
+        .pm-certificate-container .pm-certificate-border {
+            position: relative;
+            width: 820px;
+            height: 520px;
+            padding: 0;
+            border: 1px solid #E1E5F0;
+            background-color: #ffffff;
+            background-image: none;
+            left: 50%;
+            margin-left: -410px;
+            top: 50%;
+            margin-top: -260px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certificate-block {
+            width: 650px;
+            height: 200px;
+            position: relative;
+            left: 50%;
+            margin-left: -325px;
+            top: 70px;
+            margin-top: 0;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certificate-header {
+            margin-bottom: 10px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certificate-title {
+            position: relative;
+            top: 40px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certificate-title h2 {
+            font-size: 3em !important;
+
+            font-weight: bold;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certificate-title p {
+            font-size: 3rem;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certificate-body {
+            padding: 20px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certificate-body .pm-name-text {
+            font-size: 20px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-earned {
+            margin: 15px 0 20px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-earned .pm-earned-text {
+            font-size: 20px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-earned .pm-credits-text {
+            font-size: 15px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-course-title .pm-earned-text {
+            font-size: 20px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-course-title .pm-credits-text {
+            font-size: 15px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certified {
+            font-size: 12px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certified .underline {
+            margin-bottom: 5px;
+        }
+
+        .pm-certificate-container .pm-certificate-border .pm-certificate-footer {
+            width: 650px;
+            height: 100px;
+            position: relative;
+            left: 50%;
+            margin-left: -325px;
+            bottom: -105px;
+        }
+
+        .img_upload img {
+            width: 100px;
+            height: 100px;
+            border: 3px solid gray;
+            border-radius: 5px;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .shar_box {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: absolute;
+            bottom: 2%;
+            left: 2%;
+        }
+
+        .shar_box i {
+            opacity: 0;
+            font-size: 28px;
+            color: #1F1E1E;
+            will-change: transform;
+            -webkit-transform: scale(.1);
+            transform: scale(.1);
+            -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+        }
+
+        .shar_box .btn_wrap {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+            width: 240px;
+            height: 42px;
+            background-color: #EEEEED;
+            border-radius: 80px;
+            padding: 0 18px;
+            will-change: transform;
+            -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
+
+        .btn_wrap:hover {
+            /* transition-delay: .4s; */
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1)
+        }
+
+        .shar_box .btn_wrap span {
+            position: absolute;
+            z-index: 99;
+            width: 240px;
+            height: 72px;
+            border-radius: 80px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 20px;
+            text-align: center;
+            line-height: 70px;
+            letter-spacing: 2px;
+            color: #EEEEED;
+            background-color: #333;
+            padding: 0 18px;
+            -webkit-transition: all 1.2s ease;
+            transition: all 1.2s ease;
+        }
+
+        .shar_box .btn_wrap .container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 240px;
+            height: 64px;
+            border-radius: 80px;
+        }
+
+        .container i:nth-of-type(1) {
+            -webkit-transition-delay: 1.1s;
+            transition-delay: 1.1s;
+        }
+
+        .container i:nth-of-type(2) {
+            -webkit-transition-delay: .9s;
+            transition-delay: .9s;
+        }
+
+        .container i:nth-of-type(3) {
+            -webkit-transition-delay: .7s;
+            transition-delay: .7s;
+        }
+
+        .container i:nth-of-type(4) {
+            -webkit-transition-delay: .4s;
+            transition-delay: .4s;
+        }
+
+        .btn_wrap:hover span {
+            -webkit-transition-delay: .25s;
+            transition-delay: .25s;
+            -webkit-transform: translateX(-280px);
+            transform: translateX(-280px)
+        }
+
+        .btn_wrap:hover i {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+
+        .dr {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 100px;
+        }
+
+        .download_btn {
+            position: absolute;
+            bottom: 3%;
+            left: 5%;
+            color: #1F1E1E;
+            font-size: 1.8rem;
+        }
+
+        .download_btn:hover {
+            color: #ffffff;
+        }
+
+        .download_btn {
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            padding: 10px 50px;
+        }
+
+        .download_btn:hover {
+            background-color: cornflowerblue;
+        }
+
+        .social-menu ul {
+            cursor: pointer;
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            padding: 0;
+            margin: 0;
+            transform: translate(-50%, -50%);
+            display: flex;
+        }
+
+        .social-menu ul li {
+            list-style: none;
+            margin: 0 15px;
+        }
+
+        .social-menu ul li .fab {
+            font-size: 30px;
+            line-height: 60px;
+            transition: .3s;
+            color: #000;
+        }
+
+        .social-menu ul li .fab:hover {
+            color: #fff;
+        }
+
+        .social-menu ul li a {
+            position: relative;
+            display: block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #fff;
+            text-align: center;
+            transition: .6s;
+            box-shadow: 0 5px 4px rgba(0, 0, 0, .5);
+        }
+
+        .social-menu ul li a:hover {
+            transform: translate(0, -10%);
+        }
+
+        .social-menu ul li:nth-child(1) a:hover {
+            background-color: #158f13;
+        }
+
+        .social-menu ul li:nth-child(2) a:hover {
+            background-color: #E4405F;
+        }
+
+        .social-menu ul li:nth-child(3) a:hover {
+            background-color: #0077b5;
+        }
+
+        .social-menu ul li:nth-child(4) a:hover {
+            background-color: #1DA1F2;
+        }
+
+        .social-menu ul li:nth-child(5) a:hover {
+            background-color: blue;
+        }
+
+        .social-menu ul li:nth-child(6) a:hover {
+            background-color: red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+    <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+</head>
+
+<body>
+
+    <body>
+        <div class="buttons">
+            <!-- <button onclick="downloadAsPDF()">Download</button>
+            <a href="./quiz.html"> <button>Back</button> </a> -->
+            <button type="button" class="download_btn btnScreenShot" id="btnScreenShot">Download</button>
+            <div id="output"></div>
+            <!-- <a id="download" class="download_btn"><button type="button">Download</button></a> -->
+            <a href="./index.html" class="H_btn"> <button>HOME</button> </a>
+            <div class="social-menu">
+                <ul>
+                    <li class="whatsaap"><a target="blank"><i class="fab fa-whatsapp"></i></a></li>
+                    <li class="instagram"><a target="blank"><i class="fab fa-instagram"></i></a></li>
+                    <li class="linkedin"><a target="blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li class="twitter"><a><i class="fab fa-twitter"></i></a></li>
+                    <li class="twitter"><a><i class="fab fa-facebook-square"></i></a></li>
+                    <li class="twitter"><a><i class="far fa-envelope-square"></i></a></li>
+                </ul>
+            </div>
+            <!-- <div class="shar_box">
+                <div class="btn_wrap">
+                    <span>Share</span>
+                    <div class="container">
+                        <i class="fab fa-whatsapp"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fas fa-download"></i>
+                    </div>
+                </div>
+                <a href="https://dribbble.com/YancyMin" class="dr-url" target="_blank"><img class="dr"
+                        src="https://cdn.dribbble.com/assets/logo-footer-hd-a05db77841b4b27c0bf23ec1378e97c988190dfe7d26e32e1faea7269f9e001b.png"
+                        alt=""></a>
+            </div> -->
+        </div>
+        <!-- <div class="container pm-certificate-container" id="htmlContent"> -->
+        <div class="container pm-certificate-container" id="capture">
+            <div class="outer-border"></div>
+            <div class="inner-border"></div>
+            <div class="logo_govt">
+                <img src="https://cdn.discordapp.com/attachments/339446218428121098/1115925800231911434/image_2.png"
+                    alt="Election Commission of India Logo">
+            </div>
+            <div class="logo_govt2">
+                <img src="https://cdn.discordapp.com/attachments/339446218428121098/1115925800231911434/image_2.png"
+                    alt="Election Commission of India Logo">
+            </div>
+
+            <!-- <div class="congratulations_logo">
+                <img src="./certificate.png" alt="" width="100%">
+            </div> -->
+            <div class="pm-certificate-border col-xs-12">
+                <div class="row pm-certificate-header">
+                    <div class="pm-certificate-title col-xs-12 text-center">
+                        <h2>Election Commission of India</h2>
+                        <p class="cursive">This certificate is proudly presented to</p>
+                    </div>
+                </div>
+
+                <div class="row pm-certificate-body">
+
+                    <div class="pm-certificate-block">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                                <div class="pm-certificate-name underline margin-0 col-xs-8 text-center">
+                                    <span class="pm-name-text bold"><span id="userName"></span></span>
+                                </div>
+                                <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                                <div class="pm-earned col-xs-8 text-center">
+                                    <span class="pm-earned-text padding-0 block cursive"
+                                        style="font-size: 2rem;">Congratulations</span>
+                                    <span class="pm-credits-text block bold sans">for Successfully completing National
+                                        Voter Awareness Quiz Contest</span> <br>
+                                    <span id="ShowImage"></span>
+                                </div>
+                                <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                                <div class="col-xs-12"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <canvas id="my-canvas"></canvas>
+
+
+
+        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="./script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/canvg/1.5/canvg.min.js"></script>
+
+        <script>
+
+            var $btn = document.getElementById('btnScreenShot');
+            $btn.addEventListener('mousedown', onScreenShotClick);
+
+            function download(canvas, filename) {
+                // create an "off-screen" anchor tag
+                const a = document.createElement('a');
+
+                // the key here is to set the download attribute of the a tag
+                a.download = filename;
+
+                // convert canvas content to data-uri for link. When download
+                // attribute is set the content pointed to by link will be
+                // pushed as "download" in HTML5 capable browsers
+                a.href = canvas.toDataURL("image/png;base64");
+
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+
+            function onScreenShotClick(event) {
+                const element = document.querySelector("#capture");
+
+                html2canvas(element).then((canvas) => {
+                    download(canvas, 'screenshot');
+                });
+            }
+
+
+        </script>
+        <script type="text/javascript">
+            function autoClick() {
+                $("#download").click();
+            }
+
+            $(document).ready(function () {
+                var element = $("#htmlContent");
+
+                $("#download").on('click', function () {
+
+                    html2canvas(element, {
+                        onrendered: function (canvas) {
+                            var imageData = canvas.toDataURL("image/jpg");
+                            var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
+                            //console.log("imageData", imageData);
+                            //console.log("newData", newData);
+                            localStorage.setItem('newData', newData);
+                            $("#download").attr("download", "image.jpg").attr("href", newData);
+                        }
+                    });
+
+                });
+            });
+
+            var whatsaap = document.querySelector('.whatsaap');
+            const instagram = document.querySelector('.instagram');
+            const linkedin = document.querySelector('.linkedin');
+            const twitter = document.querySelector('.twitter');
+            const newData = window.localStorage.getItem("newData");
+            //console.log(newData);
+            const pageURL = location.href;
+            const message = "This is just for testing sharing buttons.";
+            const imageBase64 = "data:image/png;base64, "; // Replace <base64-encoded-image-data> with the actual base64 encoded image data
+
+            const whatsaapAPI = ` https://wa.me/?text=${pageURL} ${message} ${imageBase64}`;
+            const instagramAPI = `https://www.instagram.com/share?url=${pageURL}&caption=${message}&media=${imageBase64}`;
+            const linkedinAPI = `https://www.linkedin.com/sharing/share-offsite/?url=${pageURL}&summary=${message}&source=${imageBase64}`;
+            const twitterAPI = `https://twitter.com/intent/tweet?text=${pageURL} ${message} ${imageBase64}`;
+
+            //function convertHtmlToImage(capture) {
+            //    html2canvas(capture)
+            //        .then(function (canvas) {
+            //            // Step 3: Convert canvas to an image URL
+            //            var image = canvas.toDataURL('image/png');
+            //
+            //            // Step 4: Share the image on Facebook
+            //            let imageURL = `https://twitter.com/intent/tweet?text=${image} ${message} ${imageBase64}`;;
+            //            function shareOnFacebook(imageURL) {
+            //                console.log('Twitter');
+            //                window.open(url = twitterAPI, target = "_blank");
+            //                // Use the Facebook API or SDK to share the image on Facebook
+            //                // Include the necessary authentication and permissions
+            //
+            //                // Example using Facebook SDK
+            //                FB.api(
+            //                    '/me/photos',
+            //                    'POST',
+            //                    {
+            //                        url: imageURL,
+            //                        caption: 'Check out this image generated from HTML!',
+            //                    });
+            //            };
+            //            shareOnFacebook(image);
+            //
+            //            // Step 5: Share the image on Instagram
+            //            //shareOnInstagram(image);
+            //        })
+            //        .catch(function (error) {
+            //            console.error('Error capturing HTML as an image:', error);
+            //        });
+            //}
+
+
+            whatsaap.addEventListener('click', () => {
+                console.log('Whatsapp');
+                window.open(url = whatsaapAPI, target = "_blank");
+            });
+
+            instagram.addEventListener('click', () => {
+                console.log('Instagram');
+                window.open(url = instagramAPI, target = "_blank");
+            });
+
+            linkedin.addEventListener('click', () => {
+                console.log('LinkedIn');
+                window.open(url = linkedinAPI, target = "_blank");
+            });
+
+            //twitter.addEventListener('click', () => {
+            //    const element = document.getElementById("capture");
+            //    const canvas = document.getElementById("my-canvas");
+            //    html2canvas(element).then(function (canvas) {
+            //        const dataURL = canvas.toDataURL();
+            //        const link = document.createElement("a");
+            //        link.download = "image.png";
+            //        link.href = dataURL;
+            //
+            //        const toDataURL = url => fetch(url)
+            //            .then(response => response.blob())
+            //            .then(blob => new Promise((resolve, reject) => {
+            //                const reader = new FileReader()
+            //                reader.onloadend = () => resolve(reader.result)
+            //                reader.onerror = reject
+            //                reader.readAsDataURL(blob)
+            //            }));
+            //
+            //        function dataURLtoFile(dataurl, filename) {
+            //            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+            //                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            //            while (n--) {
+            //                u8arr[n] = bstr.charCodeAt(n);
+            //            }
+            //            return new File([u8arr], filename, { type: mime });
+            //        }
+            //
+            //        toDataURL(dataURL)
+            //            .then(dataUrl => {
+            //                var fileData = dataURLtoFile(dataUrl, "imageName.jpg");
+            //                const tweet = `https://twitter.com/intent/tweet?text=${message}`;
+            //
+            //                // Create a FileReader object
+            //                const reader = new FileReader();
+            //
+            //                // Define the onload event handler for the FileReader
+            //                reader.onload = function (event) {
+            //                    const imageAttachment = event.target.result;
+            //
+            //                    // Append the image attachment to the tweet URL
+            //                    const tweetWithImage = `${tweet}&image=${encodeURIComponent(imageAttachment)}`;
+            //
+            //                    // Open the tweet URL in a new window
+            //                    window.open(tweetWithImage, "_blank");
+            //                };
+            //
+            //                // Read the image file as data URL
+            //                reader.readAsDataURL(fileData);
+            //            });
+            //    });
+            //});
+
+            // JavaScript
+
+            // Function to convert a div into an image
+
+            document.querySelector('.twitter').addEventListener("click", function () {
+                // Get the div element
+                const divElement = document.getElementById('capture');
+
+                // Create a canvas element
+                const canvas = document.createElement('canvas');
+                canvas.width = divElement.offsetWidth;
+                canvas.height = divElement.offsetHeight;
+
+                // Get the canvas context
+                const context = canvas.getContext('2d');
+
+                // Draw the div content onto the canvas
+                context.drawSvg(divElement.innerHTML, 0, 0, canvas.width, canvas.height);
+
+                // Convert the canvas to a data URL
+                const dataUrl = canvas.toDataURL('image/png');
+
+                // Call the function to share the image on Twitter
+                shareOnTwitter(dataUrl);
+            });
+
+            // Function to share the image on Twitter
+            function shareOnTwitter(imageDataUrl) {
+                // Encode the image data URL
+                const encodedUrl = encodeURIComponent(imageDataUrl);
+
+                // Create the TinyURL API endpoint URL
+                const apiUrl = `https://api.tinyurl.com/dev/api-create?url=${encodedUrl}`;
+
+                // Make a request to TinyURL API to shorten the URL
+                fetch(apiUrl)
+                    .then(response => response.text())
+                    .then(shortUrl => {
+                        // Prepare the tweet text
+                        const tweetText = 'Check out this image!';
+
+                        // Construct the tweet URL with the short URL and tweet text
+                        const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(shortUrl)}`;
+
+                        // Open a new window or redirect to the tweet URL
+                        window.open(tweetUrl);
+                    })
+                    .catch(error => {
+                        console.error('Error occurred while shortening URL:', error);
+                    });
+            }
+
+
+        </script>
+        <script>
+            let im1 = "./image (2).png";
+            //console.log(im1);
+            window.onload = function () {
+                var value = localStorage.getItem('myValue');
+                console.log(value);
+                var output = document.getElementById('userName');
+                output.innerHTML = value;
+                const ShowImage = document.querySelector('#ShowImage');
+                const imgUrl = window.localStorage.getItem("imgUrl");
+                if (imgUrl) {
+                    const img = document.createElement('img');
+                    img.src = imgUrl;
+                    ShowImage.classList.add('img_upload');
+                    //img.width = "100%"
+                    ShowImage.appendChild(img);
+                }
+            };
+
+            function downloadAsPDF() {
+                const doc = new jsPDF();
+
+                // Get the HTML content to be converted to PDF
+                const htmlContent = document.documentElement.outerHTML;
+
+                // Convert HTML to PDF
+                doc.html(htmlContent, {
+                    callback: function (pdf) {
+                        // Save the PDF file
+                        pdf.save('downloaded.pdf');
+                    }
+                });
+            }
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+
+</html>
